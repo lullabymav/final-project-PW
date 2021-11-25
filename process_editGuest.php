@@ -4,7 +4,7 @@
 
     if(isset($_POST['save'])){
         $id = $_POST['id'];
-        $oldRoom = $_POST['oldRoom'];
+        //$oldRoom = $_POST['oldRoom'];
         $nik = $_POST['nik'];
         $name = $_POST['name'];
         $phone = $_POST['phone'];
@@ -39,25 +39,25 @@
             // echo $newRoom;
         }
 
-        if($oldRoom!=$newRoom){
-            $sqlOldRoom = "UPDATE room SET guest_name=NULL, status='Available' WHERE no=$oldRoom";
-            $mydb->query($sqlOldRoom);
-
-            $sqlNewRoom = "UPDATE room SET guest_name='$name', status='Occupied' WHERE no=$newRoom";
-            $mydb->query($sqlNewRoom);
-
-            $sqlUpGuest = "UPDATE guest SET nik='$nik', name='$name', phone='$phone', email='$email', no_room=$newRoom, nights='$nights' WHERE id=$id";
-            $mydb->query($sqlUpGuest);
-        }else{
-            // $sqlOldRoom = "UPDATE room SET guest_name=NULL, status='Available' WHERE no=$oldRoom";
+        // if($oldRoom!=$newRoom){
+            // $sqlOldRoom = "UPDATE room SET guest_name=NULL, status='Available' WHERE no=$oldRoom AND status='Occupied'";
             // $mydb->query($sqlOldRoom);
-    
+
             $sqlNewRoom = "UPDATE room SET guest_name='$name', status='Occupied' WHERE no=$newRoom";
             $mydb->query($sqlNewRoom);
-    
+
             $sqlUpGuest = "UPDATE guest SET nik='$nik', name='$name', phone='$phone', email='$email', no_room=$newRoom, nights='$nights' WHERE id=$id";
             $mydb->query($sqlUpGuest);
-        }
+        // }else{
+        //     // $sqlOldRoom = "UPDATE room SET guest_name=NULL, status='Available' WHERE no=$oldRoom";
+        //     // $mydb->query($sqlOldRoom);
+    
+        //     $sqlNewRoom = "UPDATE room SET guest_name='$name', status='Occupied' WHERE no=$newRoom";
+        //     $mydb->query($sqlNewRoom);
+    
+        //     $sqlUpGuest = "UPDATE guest SET nik='$nik', name='$name', phone='$phone', email='$email', no_room=$newRoom, nights='$nights' WHERE id=$id";
+        //     $mydb->query($sqlUpGuest);
+        // }
 
     }else if(isset($_POST['back'])){
         header("location: view_guest.php");

@@ -8,8 +8,13 @@
     $editGuest = $mydb->query($sqlEditGuest);
     $row = $editGuest->fetch_object();
 
-    $sqlFreeRoom = "UPDATE room SET guest_name=NULL, status='Available' WHERE no=$row->no_room";
+    // $sqlEditRoom = "SELECT * from room where no=$row->no_room";
+    // $editRoom = $mydb->query($sqlEditRoom);
+    // $row2 = $editRoom->fetch_object();
+
+    $sqlFreeRoom = "UPDATE room SET guest_name=NULL, status='Available' WHERE no=$row->no_room AND status='Occupied'";
     $mydb->query($sqlFreeRoom);
+    
 ?>
 
 <!doctype html>
@@ -42,7 +47,7 @@
                 <form action="process_editGuest.php" method="POST">
                     <div class="input pt-3" style="font-size: 20px;"> 
                         <input type="hidden" name="id" value=<?= $row->id ?>>
-                        <input type="hidden" name="oldRoom" value=<?= $row->no_room ?>>
+                        <!-- <input type="hidden" name="oldRoom" value=<?= $row->no_room ?>> -->
                         <label for="nik">NIK</label><br>
                         <input type="text" name="nik" class="mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none; " placeholder="ID number according to ID card" value=<?= $row->nik ?>><br>
                         <label for="name">Name</label><br>

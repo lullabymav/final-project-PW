@@ -26,13 +26,13 @@
 
         // }
 
-        $exe = $mydb->query($sql);
+        $mydb->query($sql);
         
-        if($exe){
-            echo "Success";
-        }else{
-            echo "Failed";
-        }
+        // if($exe){
+        //     echo "Success";
+        // }else{
+        //     echo "Failed";
+        // }
     }else if(isset($_POST['back'])){
         header("location:view_room.php");
     }
