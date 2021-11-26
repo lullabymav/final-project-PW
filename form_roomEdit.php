@@ -1,10 +1,9 @@
 <?php
     require('connectdb.php');
-    session_start();
 
     $no = $_GET['no'];
 
-    $sql = "SELECT * from room where no=$no";
+    $sql = "SELECT * FROM room001 WHERE no001=$no";
     $editRoom = $mydb->query($sql);
     $row = $editRoom->fetch_object();
 ?>
@@ -26,28 +25,28 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-light shadow-sm" style="background-color: lightsteelblue">
+    <nav class="navbar navbar-light shadow-sm" style="background-color: #fac334">
         <div class="container-fluid ps-5">
-            <a class="navbar-brand fs-3 fw-bold" style="text-shadow: 2px 2px 3px white" href="#">LULLABY</a>
+            <a class="navbar-brand fs-3 fw-bold" style="text-shadow: 2px 2px 3px white" href="index.php">DAIZY</a>
         </div>
     </nav>
 
     <div class="container p-5 d-flex justify-content-center">
-        <div class="box p-5 pb-4" style="background-color: #e0cbaf; min-width: min-content; min-height: min-content; border-radius: 5%">
+        <div class="box p-5 pb-4" style="background-color: #fac334; min-width: min-content; min-height: min-content; border-radius: 5%">
             <div class="boxContent">
                 <h1 class="text-center" style="text-shadow: 2px 2px 3px white; font-size: 50px">Edit Room <?= $no ?></h1>
                 <form action="process_editRoom.php" method="POST">
                     <div class="input pt-3" style="font-size: 20px;">
-                        <input type="hidden" name="no" value=<?= $row->no ?>> 
+                        <input type="hidden" name="no" value=<?= $row->no001 ?>> 
                         <label for="name">Guest Name</label><br>
-                        <input type="text" name="name" class="mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none;" placeholder="name according to ID Card" value="<?= $row->guest_name ?>"><br>
+                        <input type="text" name="name" class="mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none;" placeholder="name according to ID Card" value="<?= $row->guest_name001 ?>"><br>
                         <label for="status">Status</label><br>
                         <div class="input-group">
-                            <select name="status" class="form-select mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none; font-size: 20px" value="<?= $row->status ?>">
+                            <select name="status" class="form-select mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none; font-size: 20px" value="<?= $row->status001 ?>">
                                 <option value="" disabled selected>choose room status</option>
                                 <option value="Available">Available</option>
                                 <option value="Occupied">Occupied</option>
-                                <option value="Under<br>Maintance">Under Maintance</option>
+                                <option value="Under<br>Main#fac334ce">Under Maintenance</option>
                             </select>
                         </div>
                     </div>
@@ -62,9 +61,9 @@
 
     <!-- Footer -->
     <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 ps-4 border-top shadow-sm"
-        style="background-color: lightsteelblue;">
+        style="background-color: #fac334;">
         <div class="d-flex align-items-center">
-            <span>Copyright 2021 © Lullaby Hotel</span>
+            <span>Copyright 2021 © Daizy Hotel</span>
         </div>
     </footer>
 
@@ -75,30 +74,3 @@
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Edit Room</title>
-</head>
-<body>
-    <form action="process_editRoom.php" method="POST">
-        <h1>Edit Room <?= $no ?></h1>
-        <input type="hidden" name="no" value=<?= $row->no ?>>
-        <label for=""> Guest Name : </label>
-        <input type="text" name="name" value="<?= $row->guest_name ?>"><br>
-
-
-        <label for=""> Status     : </label>
-        <select name="status">
-                <!-- try to change the value
-                <option value="Available">Available</option>
-                <option value="Occupied">Occupied</option>
-                <option value="Under<br>Maintenance">Under Maintenance</option>
-            </select>
-        <!-- <input type="text" name="status" value="<?= $row->status ?>">
-        <br>
-        <button type="submit" name="save">Finish</button>
-    </form>
-</body>
-</html> -->

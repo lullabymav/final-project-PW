@@ -1,6 +1,5 @@
 <?php
     require('connectdb.php');
-    session_start();
 ?>
 
 <!doctype html>
@@ -20,34 +19,30 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-light shadow-sm" style="background-color: lightsteelblue">
+    <nav class="navbar navbar-light shadow-sm" style="background-color: #fac334">
         <div class="container-fluid ps-5">
-            <a class="navbar-brand fs-3 fw-bold" style="text-shadow: 2px 2px 3px white" href="#">LULLABY</a>
+            <a class="navbar-brand fs-3 fw-bold" style="text-shadow: 2px 2px 3px white" href="index.php">DAIZY</a>
         </div>
     </nav>
 
     <div class="container p-5 d-flex justify-content-center">
-        <div class="box p-5 pb-4" style="background-color: #e0cbaf; min-width: min-content; min-height: min-content; border-radius: 5%">
+        <div class="box p-5 pb-4" style="background-color: #fac334; min-width: min-content; min-height: min-content; border-radius: 5%">
             <div class="boxContent">
                 <h1 class="text-center" style="text-shadow: 2px 2px 3px white; font-size: 50px">New Guest</h1>
                 <form action="process_newGuest.php" method="POST">
                     <div class="input pt-3" style="font-size: 20px;"> 
-                        <label for="nik">NIK</label><br>
-                        <input type="text" name="nik" class="mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none; " placeholder="ID number according to ID card"><br>
                         <label for="name">Name</label><br>
                         <input type="text" name="name" class="mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none;" placeholder="name according to ID Card"><br>
                         <label for="phone">Phone</label><br>
                         <input type="text" name="phone" class="mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none;" placeholder="08xxxxxxxxxx"><br>
-                        <label for="email">Email</label><br>
-                        <input type="email" name="email" class="mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none;" placeholder="emailname@gmail.com"><br>
+                        <label for="address">Address</label><br>
+                        <textarea type="text" name="address" class="mb-2 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none;" placeholder="address according to ID Card"></textarea><br>
                         <label for="room">Room Type</label><br>
                         <div class="input-group">
                             <select name="class" class="form-select mb-3 mt-1 p-2 rounded shadow-sm" style="width: 430px; border: none; font-size: 20px">
                                 <option value="" disabled selected>choose type</option>
-                                <option value="C1">Standard Single Bed</option>
-                                <option value="C2">Standard Double Bed</option>
-                                <option value="B1">Deluxe Single Bed</option>
-                                <option value="B2">Deluxe Double Bed</option>
+                                <option value="C">Standard</option>
+                                <option value="B">Deluxe</option>
                                 <option value="A">Grand</option>
                             </select>
                         </div>
@@ -65,9 +60,9 @@
 
     <!-- Footer -->
     <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 ps-4 border-top shadow-sm"
-        style="background-color: lightsteelblue;">
+        style="background-color: #fac334;">
         <div class="d-flex align-items-center">
-            <span>Copyright 2021 © Lullaby Hotel</span>
+            <span>Copyright 2021 © Daizy Hotel</span>
         </div>
     </footer>
 
@@ -78,42 +73,3 @@
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>New Guest</title>
-</head>
-<body>
-    <form method="POST" action="process_newGuest.php">
-        <label for="">NIK     : </label>
-        <input type="text" name="nik"><br>
-
-        <label for="">Name    : </label>
-        <input type="text" name="name"><br>
-
-        <label for="">Phone   : </label>
-        <input type="text" name="phone"><br>
-
-        <label for="">E-mail  : </label>
-        <input type="text" name="email"><br>
-
-        <label for="">Address : </label>
-        <input type="text" name="addr"><br>
-
-        <label for="">Class   :</label>
-            <select name="class">
-                <option value="A">Grand</option>
-                <option value="B1">Deluxe Single Bed</option>
-                <option value="B2">Deluxe Double Bed</option>
-                <option value="C1">Standar Single Bed</option>
-                <option value="C2">Standar Double Bed</option>
-            </select><br>
-
-        <label for="">How many nights :</label>
-        <input type="number" name="nights"><br>
-
-        <button type="submit" name="save">Finish</button>
-    </form>
-</body>
-</html> -->

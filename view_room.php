@@ -1,6 +1,5 @@
 <?php
     require('connectdb.php');
-    session_start();
 ?>
 
 <!doctype html>
@@ -17,14 +16,14 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-light shadow-sm" style="background-color: lightsteelblue">
+    <nav class="navbar navbar-light shadow-sm" style="background-color: #fac334">
         <div class="container-fluid ps-5">
-            <a class="navbar-brand fs-3 fw-bold" style="text-shadow: 2px 2px 3px white" href="#">LULLABY</a>
+            <a class="navbar-brand fs-3 fw-bold" style="text-shadow: 2px 2px 3px white" href="index.php">DAIZY</a>
         </div>
     </nav>
 
     <div class="container p-5 my-4 d-flex justify-content-center">
-        <div class="box p-5 pb-4 rounded-3" style="background-color: #e0cbaf; min-width: min-content; min-height: min-content;">
+        <div class="box p-5 pb-4 rounded-3" style="background-color: #fac334; min-width: min-content; min-height: min-content;">
             <div class="boxContent">
                 <h1 class="text-center" style="text-shadow: 2px 2px 3px white; font-size: 50px">Room Data</h1>
                 <table class="table table-bordered table-light border-dark mt-4">
@@ -38,28 +37,21 @@
                     </thead>
                     <tbody>
                     <?php
-                    $sqlReadRoom = "SELECT * FROM room";
+                    $sqlReadRoom = "SELECT * FROM room001";
                     $room = $mydb->query($sqlReadRoom);
                     while($row = $room->fetch_object()){
                     ?>
                         <tr class="align-middle">
-                            <td><?= $row->no ?></td>
+                            <td><?= $row->no001 ?></td>
                             <?php
-                                if($row->guest_name==NULL){
-                                    $row->guest_name = "-";
+                                if($row->guest_name001==NULL){
+                                    $row->guest_name001 = "-";
                                 }
                             ?>
-                            <td><?= $row->guest_name ?></td>
-                            <?php
-                                // if($row->status==0){
-                                //     $status = "Available";
-                                // }else{
-                                //     $status = "Occupied";
-                                // }
-                            ?>
-                            <td><?= $row->status ?></td>
+                            <td><?= $row->guest_name001 ?></td>
+                            <td><?= $row->status001 ?></td>
                             <td>
-                                <a href="form_roomEdit.php?no=<?= $row->no?>">
+                                <a href="form_roomEdit.php?no=<?= $row->no001?>">
                                     <button class="btn btn-secondary">Edit</button>
                                 </a>
                             </td>
@@ -70,7 +62,7 @@
                     </tbody>
                 </table>
                 <p class="fs-5 mb-2">Total Room : <?php echo mysqli_num_rows($room)?></p>
-                <a class="d-flex justify-content-center pb-2" style="text-decoration: none" href="admin_page.php" role="button">
+                <a class="d-flex justify-content-center pb-2" style="text-decoration: none" href="index.php" role="button">
                   <input type="submit" name="back" value="Back" class="btn btn-danger shadow-sm text-light fs-5 px-4" style="min-width: min-content;">
                 </a>
             </div>
@@ -79,9 +71,9 @@
     
     <!-- Footer -->
     <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 ps-4 border-top shadow-sm"
-        style="background-color: lightsteelblue;">
+        style="background-color: #fac334;">
         <div class="d-flex align-items-center">
-            <span>Copyright 2021 © Lullaby Hotel</span>
+            <span>Copyright 2021 © Daizy Hotel</span>
         </div>
     </footer>
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -89,55 +81,3 @@
 
   </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Room Admin</title>
-</head>
-<body>
-    <a href="admin_page.php">
-        <button>BACK</button>
-    </a>
-    <table border=1>
-        <thead>
-            <th>Room No.</th>
-            <th>Ocupied By</th>
-            <th>Status</th>
-            <th>Option</th>
-        </thead>
-        <tbody>
-            <?php
-            $sqlReadRoom = "SELECT * FROM room";
-            $room = $mydb->query($sqlReadRoom);
-            while($row = $room->fetch_object()){
-            ?>
-                <tr>
-                    <td><?= $row->no ?></td>
-                    <?php
-                        if($row->guest_name==NULL){
-                            $row->guest_name = "-";
-                        }
-                    ?>
-                    <td><?= $row->guest_name ?></td>
-                    <?php
-                        // if($row->status==0){
-                        //     $status = "Available";
-                        // }else{
-                        //     $status = "Occupied";
-                        // }
-                    ?>
-                    <td><?= $row->status ?></td>
-                    <td>
-                        <a href="form_roomEdit.php?no=<?= $row->no?>">
-                            <button>Edit</button>
-                        </a>
-                    </td>
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
-</body>
-</html> -->

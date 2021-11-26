@@ -2,7 +2,7 @@
     $server="localhost";
     $username="root";
     $password="";
-    $db="hotel_fp";
+    $db="hotel001";
 
     $mydb = mysqli_connect($server,$username,$password,$db);
     if($mydb){

@@ -17,18 +17,18 @@
   </head>
   <body>
       <!-- Navbar -->
-    <nav class="navbar navbar-light shadow-sm" style="background-color:lightsteelblue; ">
+    <nav class="navbar navbar-light shadow-sm" style="background-color:#fac334; ">
         <div class="container-fluid ps-5">
-            <a class="navbar-brand fs-3 fw-bold" style="text-shadow: 2px 2px 3px white" href="#">LULLABY</a>
+            <a class="navbar-brand fs-3 fw-bold" style="text-shadow: 2px 2px 3px white" href="index.php">DAIZY</a>
         </div>
     </nav>
 
     <!-- Content -->
     <div class="container p-5 d-flex justify-content-center">
-        <div class="box p-5 pb-4 m-5" style="background-color: #e0cbaf; min-width: min-content; min-height: min-content; border-radius: 5%">
+        <div class="box p-5 pb-4 m-5" style="background-color: #fac334; min-width: min-content; min-height: min-content; border-radius: 5%">
             <div class="boxContent">
                 <h2 class="text-center" style="text-shadow: 2px 2px 3px white;">Input New Guest <?= $head ?>!</h2>
-                <a href="admin_page.php" class="d-flex justify-content-center">
+                <a href="index.php" class="d-flex justify-content-center">
                     <input type="submit" name="submit" value="OK" class="btn btn-primary shadow-sm text-light fs-5 px-4 mt-4" style="min-width: min-content;">         
                 </a>
             </div>
@@ -37,9 +37,9 @@
 
     <!-- Footer -->
     <footer class="d-flex flex-wrap justify-content-center fixed-bottom align-items-center py-3 ps-4 border-top shadow-sm"
-        style="background-color:lightsteelblue;">
+        style="background-color:#fac334;">
         <div class="d-flex align-items-center">
-            <span>Copyright 2021 © Lullaby Hotel</span>
+            <span>Copyright 2021 © Daizy Hotel</span>
         </div>
     </footer>
 
@@ -48,16 +48,3 @@
 
   </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>Input New Guest <?= $head ?>!</h1><br>
-        <a href="admin_page.php">
-            <button>OK</button>
-        </a>
-</body>
-</html> -->
